@@ -3,18 +3,23 @@ import {getDatabase, set, ref, child, update, remove, get} from 'https://www.gst
 
 const db = getDatabase(app)
 const submit = document.getElementById("submit")
-const display = document.getElementById("read")
 const change = document.getElementById("update")
+const del = document.getElementById("delete")
 var name, rollno, dob, gender, mail
 
+//Read values to perform crud operations
 function read(){
     name = document.getElementById("name").value
     rollno = document.getElementById("rollno").value
     dob = document.getElementById("date").value
     gender = document.querySelector('input[name="gender"]:checked').value
     mail = document.getElementById("mail").value
+
+    document.getElementById("name").value=document.getElementById("rollno").value=document.getElementById("date").value=document.querySelector('input[name="gender"]:checked').value=document.getElementById("mail").value=""
 }
 
+
+//Insert into database operation
 async function store(){
     read()
     let flag = 0
@@ -32,21 +37,11 @@ async function store(){
         }
     }
     else set(ref(db, "Students/"+rollno), {Name: name, Rollno: rollno, DOB: dob, Gender: gender, Mail: mail})
+    alert("Entry has been inserted for roll no: "+rollno)
 }
 
-async function disp(){
-    var tb = document.getElementById("displaytb")
-    tb.innerHTML='<tr><th>Name</th><th>Rollno</th><th>DOB</th><th>Gender</th><th>Mail</th></tr>'
-    let snapshot = await get(child(ref(db), "Students"))
-    if(snapshot.exists()){
-        var arr = Object.values(snapshot.val())
-        arr.forEach((ele)=>{
-            tb.innerHTML +='<tr><td>'+ele.Name+'</td><td>'+ele.Rollno+'</td><td>'+ele.DOB+'</td><td>'+ele.Gender+'</td><td>'+ele.Mail+'</td></tr>'
-        })
-    }
-    else alert("Database empty")
-}
 
+//Update an entry operation
 async function modify(){
     let rno = prompt("Enter rollno to update:")
     let field = prompt("Enter field name to update:\nAvailable fields: name, mail:")
@@ -55,14 +50,25 @@ async function modify(){
         update(ref(db, "Students/"+rno), {Name: change})
         alert("Name changed for "+rno)
     }
-    if(field == 'mail'){
+    else if(field == 'mail'){
         let change = prompt("Enter new mail id:")
         update(ref(db, "Students/"+rno), {Mail: change})
         alert("Name changed for "+rno)
     }
+    else alert("Enter valid fields")
 }
 
+//Delete an entry operation
+async function rem(){
+    let rno = prompt("Enter rollno to delete:")
+    let snapshot = await get(child(ref(db), "Students/"+rno))
+    if(snapshot.exists()){
+        remove(ref(db, "Students/"+rno))
+        alert("Deleted entry "+rno)
+    }
+    else alert("No entry with rollno: "+rno+" is found")
+}
 
 submit.addEventListener("click", store)
-display.addEventListener('click', disp)
 change.addEventListener('click', modify)
+del.addEventListener('click', rem)

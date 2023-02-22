@@ -1,25 +1,25 @@
 @keyframes button_anim{
-    0%, 7% {
-      transform: rotateZ(0);
-    }
-    15% {
-      transform: rotateZ(-15deg);
-    }
-    20% {
-      transform: rotateZ(10deg);
-    }
-    25% {
-      transform: rotateZ(-10deg);
-    }
-    30% {
-      transform: rotateZ(6deg);
-    }
-    35% {
-      transform: rotateZ(-4deg);
-    }
-    40%, 100% {
-      transform: rotateZ(0);
-    }
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
 }
 
 #displaytb{
@@ -29,69 +29,75 @@
 }
 
 .page_ref{
-    text-align: center;
-    margin: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Oswald', sans-serif;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    animation: about_anim 1s ease-in-out infinite;
+  text-align: center;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 tr{
-    text-align: left;
+  text-align: left;
 }
 
 th{
-    padding-left: 20px;
-    margin-top: 10px;
-    padding-right: 30px;
-    padding-bottom: 10px;
+  padding-left: 20px;
+  margin-top: 10px;
+  text-decoration: underline;
+  padding-right: 30px;
+  padding-bottom: 10px;
 }
 
 td{
-    word-spacing: 20px;
-    padding-left: 5px;
+  word-spacing: 20px;
+  padding-left: 5px;
 }
 
 .reg_det{
-    width: 690px;
-    height: 360px;
-    margin: 40px auto;
-    display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+  width: 690px;
+  height: 360px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
 }
 
 .reg_det .txt_field{
-    padding: 10px;
-    border-top-style: hidden;
-    border-left-style: hidden;
-    border-right-style: hidden;
-    outline: none;
-    background: transparent;
-    margin: 5px;
+  padding: 10px;
+  border-top-style: hidden;
+  border-left-style: hidden;
+  border-right-style: hidden;
+  color: aliceblue;
+  outline: none;
+  background: transparent;
+  margin: 5px;
 }
 
 .button{
-    width: 100px;
-    background-color: rgb(141, 189, 232);
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-left: 20px;
+  width: 100px;
+  background-color: rgb(141, 189, 232);
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    background-color: rgb(93, 164, 227);
-    animation: button_anim 2s infinite;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: rgb(93, 164, 227);
+  animation: button_anim 2s infinite;
+}
+
+@media screen and (max-width: 700px){
+  header{height: 80px;}
+  .reg_det, .login_det{width: 400px; height: 450px;}
 }
