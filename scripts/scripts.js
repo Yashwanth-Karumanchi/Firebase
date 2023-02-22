@@ -4,6 +4,7 @@ import {getDatabase, set, ref, child, update, remove, get} from 'https://www.gst
 const db = getDatabase(app)
 const submit = document.getElementById("submit")
 const display = document.getElementById("read")
+const change = document.getElementById("update")
 var name, rollno, dob, gender, mail
 
 function read(){
@@ -46,6 +47,22 @@ async function disp(){
     else alert("Database empty")
 }
 
+async function modify(){
+    let rno = prompt("Enter rollno to update:")
+    let field = prompt("Enter field name to update:\nAvailable fields: name, mail:")
+    if(field == 'name'){
+        let change = prompt("Enter new name:")
+        update(ref(db, "Students/"+rno), {Name: change})
+        alert("Name changed for "+rno)
+    }
+    if(field == 'mail'){
+        let change = prompt("Enter new mail id:")
+        update(ref(db, "Students/"+rno), {Mail: change})
+        alert("Name changed for "+rno)
+    }
+}
+
 
 submit.addEventListener("click", store)
 display.addEventListener('click', disp)
+change.addEventListener('click', modify)
