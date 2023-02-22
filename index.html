@@ -1,13 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
+
 <body>
-    
+    <div id="container">
+        <main>
+            <section class="page_ref">
+                <h2>Register</h2>
+            </section>
+
+            <section class="reg_det">
+                <form>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Name:</th>
+                                <td><input type="text" class="txt_field" placeholder="Enter first name" id="name"></td>
+                            </tr>
+                            <tr>
+                                <th>Roll no:</th>
+                                <td><input type="text" class="txt_field" placeholder="Enter roll.no" id="rollno"></td>
+                            </tr>
+                            <tr>
+                                <th>Date Of Birth:</th>
+                                <td><input type="date" class="txt_field" id="date"></td>
+                            </tr>
+                            <tr>
+                                <th>Gender:</th>
+                                <td><input type="radio" name="gender" value="male">Male
+                                <input type="radio" name="gender" value="female">Female
+                                <input type="radio" name="gender" value="others">Others</td>
+                            </tr>
+                            <tr>
+                                <th>Email:</th>
+                                <td><input type="email" class="txt_field" placeholder="Enter Email" id="mail"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="button" value="Submit" class="button" id="submit">
+                    <input type="button" value="Read" class="button" id="read">
+                    <input type="button" value="Update" class="button" id="update">
+                    <input type="reset" class="button">
+                </form>
+            </section>
+        </main>
+
+        <main>
+            <table id="displaytb"></table>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="./scripts/scripts.js" type="module"></script>
 </body>
 </html>
