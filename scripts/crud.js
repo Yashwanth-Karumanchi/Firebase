@@ -20,7 +20,7 @@ function read(){
 
 
 //Insert into database operation
-async function store(){
+submit.addEventListener("click", async () => {
     read()
     let flag = 0
     let snapshot = await get(child(ref(db), "Students"))
@@ -38,11 +38,11 @@ async function store(){
     }
     else set(ref(db, "Students/"+rollno), {Name: name, Rollno: rollno, DOB: dob, Gender: gender, Mail: mail})
     alert("Entry has been inserted for roll no: "+rollno)
-}
+})
 
 
 //Update an entry operation
-async function modify(){
+change.addEventListener('click', async () => {
     let rno = prompt("Enter rollno to update:")
     let field = prompt("Enter field name to update:\nAvailable fields: name, mail:")
     if(field == 'name'){
@@ -56,10 +56,10 @@ async function modify(){
         alert("Name changed for "+rno)
     }
     else alert("Enter valid fields")
-}
+})
 
 //Delete an entry operation
-async function rem(){
+del.addEventListener('click', async () => {
     let rno = prompt("Enter rollno to delete:")
     let snapshot = await get(child(ref(db), "Students/"+rno))
     if(snapshot.exists()){
@@ -67,8 +67,4 @@ async function rem(){
         alert("Deleted entry "+rno)
     }
     else alert("No entry with rollno: "+rno+" is found")
-}
-
-submit.addEventListener("click", store)
-change.addEventListener('click', modify)
-del.addEventListener('click', rem)
+})
