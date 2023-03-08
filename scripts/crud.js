@@ -45,15 +45,15 @@ submit.addEventListener("click", async () => {
 change.addEventListener('click', async () => {
     let rno = prompt("Enter rollno to update:")
     let field = prompt("Enter field name to update:\nAvailable fields: name, mail:")
-    if(field == 'name'){
+    if(field.toLowerCase() == 'name'){
         let change = prompt("Enter new name:")
         update(ref(db, "Students/"+rno), {Name: change})
         alert("Name changed for "+rno)
     }
-    else if(field == 'mail'){
+    else if(field.toLocaleLowerCase() == 'mail'){
         let change = prompt("Enter new mail id:")
         update(ref(db, "Students/"+rno), {Mail: change})
-        alert("Name changed for "+rno)
+        alert("Mail changed for "+rno)
     }
     else alert("Enter valid fields")
 })
