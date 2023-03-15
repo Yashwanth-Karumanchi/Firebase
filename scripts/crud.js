@@ -43,7 +43,6 @@ submit.addEventListener("click", async () => {
     }
     else set(ref(db, "Students/"+rollno), {Name: name, Rollno: rollno, DOB: dob, Gender: gender, Mail: mail})
     alert("Entry has been inserted for roll no: "+rollno)
-    add()
 })
 
 
