@@ -1,10 +1,12 @@
 import {app} from './firebaseConfig.js'
 import {getDatabase, set, ref, child, update, remove, get} from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js'
+import {add} from './disp.js'
 
 const db = getDatabase(app)
 const submit = document.getElementById("submit")
 const change = document.getElementById("update")
 const del = document.getElementById("delete")
+const r = document.getElementById("read")
 var name, rollno, dob, gender, mail
 
 //Read values to perform crud operations
@@ -18,6 +20,9 @@ function read(){
     document.getElementById("name").value=document.getElementById("rollno").value=document.getElementById("date").value=document.querySelector('input[name="gender"]:checked').value=document.getElementById("mail").value=""
 }
 
+r.addEventListener("click", () => {
+    window.open("./display.html")
+})
 
 //Insert into database operation
 submit.addEventListener("click", async () => {
@@ -38,6 +43,7 @@ submit.addEventListener("click", async () => {
     }
     else set(ref(db, "Students/"+rollno), {Name: name, Rollno: rollno, DOB: dob, Gender: gender, Mail: mail})
     alert("Entry has been inserted for roll no: "+rollno)
+    add()
 })
 
 

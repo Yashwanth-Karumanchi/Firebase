@@ -16,3 +16,15 @@ window.addEventListener('load', async ()=>{
     }
     else alert("Database empty")
 })
+
+export async function add(){
+    var tb = document.getElementById("displaytb")
+    let snapshot = await get(child(ref(db), "Students"))
+    if(snapshot.exists()){
+        var arr = Object.values(snapshot.val())
+        arr.forEach((ele)=>{
+            tb.innerHTML +='<tr><td>'+ele.Name+'</td><td>'+ele.Rollno+'</td><td>'+ele.DOB+'</td><td>'+ele.Gender+'</td><td>'+ele.Mail+'</td></tr>'
+        })
+    }
+    else alert("Database empty")
+}
